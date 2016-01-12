@@ -45,7 +45,7 @@ app.get('/:product', menu.getAddToOrder);
 app.post('/:product', menu.addToOrder);
 app.get('/view/:orderid', menu.viewOrder);
 //app.get('/lal/lala', ss.lala);
-//app.get('/populate/db', menu.populateDatabase);
+app.get('/populate/db', menu.populateDatabase);
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
