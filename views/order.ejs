@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+        Remove this if you use the .htaccess -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <title>HTML</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+        <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+        <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <style type="text/css">
+            body 
+            {
+                background-color: black;
+                font-family: 'Papyrus';
+                font-size: 16px;
+                color: rgba(254, 196,99,1);
+            }
+            button
+            {
+                background-color: black;
+                box-shadow: 10px;
+                border: 0px;
+                font-family: 'Papyrus';
+                font-size: 14px;
+                color: rgba(254, 196,99,1); 
+                cursor: pointer;              
+            }
+            button:hover{
+                color: rgba(254, 200,200,1)
+            }
+            input
+            {
+                background-color: black;
+                box-shadow: 10px;
+                border-color: rgba(254, 196,99,0.5); 
+                font-family: 'Papyrus';
+                font-size: 14px;
+                color: rgba(254, 196,99,1);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <div id="form" display="hidden">
+                <h3><%= dish %></h3>
+                <form method="POST">
+                   <span> <label for="quantity">Quantity</label></span>
+                    <input type='number' min='1' max='25' name="quantity" value='1' style="cursor: auto;" autocomplete="off">
+                    <span><button type="submit" id="order">Add To Order</button></span>
+                </form>
+            </div>
+        </div>
+    </body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+        <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+</html>

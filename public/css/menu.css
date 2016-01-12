@@ -1,0 +1,67 @@
+body 
+{
+            font-family:Arial, Helvetica, sans-serif;
+            color:rgba(200, 180, 180, 0.7);
+}
+p 
+{
+            font-size:16px;
+            font-weight:normal;
+            text-align:justify;
+            vertical-align:middle;
+  /* padding-top:20px;*/
+            -webkit-font-smoothing: none;
+            -webkit-font-smoothing: subpixel-antialiased;
+            -webkit-font-smoothing: antialiased;  
+}
+a.navlinks{
+     font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    color:rgba(200, 180, 180, 0.7);
+    font-weight:600;
+    text-transform: uppercase;
+    text-align:justify;
+    vertical-align:middle;
+    -webkit-font-smoothing: none;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-font-smoothing: antialiased;
+    text-decoration: none;
+    padding-right: 40px;
+    padding-left: 40px;
+   
+}
+.nav_content_container a{
+     font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    color:rgba(200, 180, 180, 0.7);
+    text-align:justify;
+    -webkit-font-smoothing: none;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-font-smoothing: antialiased;
+    text-decoration: none;
+   
+}
+.navs {
+    list-style-type:none;
+}
+.navs li {
+    float:left;
+}
+.active{
+    color:rgba(204, 153, 0,0.7);
+}
+a:hover{
+    color:rgba(204, 153, 0,0.7);
+}
+.clear{
+    clear:both;
+}
+#indian_content{
+    display:none;
+}
+#chinese_content{
+    display:none;
+}
+#bar_content{
+    display:none;
+}

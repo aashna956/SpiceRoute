@@ -1,0 +1,396 @@
+
+/* VERTICAL NAV CSS*/
+
+.nav_css{
+    width: 56px;
+    height: 30px;
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    
+    display: block;
+    position: absolute;
+    left: -13px;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    bottom: 172px;
+    color: rgba(24,54,255,0.30);
+    font-size: 50px;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    float: left;
+}
+/* SPICEBAR */
+#nav1{
+background-color: rgba(0,0,0,1.00);
+    /*color: rgba(125,0,0,1.00);*/
+    width: 56px;
+    height: 120%;
+    display: block;
+    position: fixed;
+    top:-10px;
+    left: -100px;
+    opacity:.8;
+     color: rgba(255,255,255,0.40);
+    background-color: transparent;
+    background-color: rgba(0, 0,80, 0.8);
+    -webkit-transition-property: opacity;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-in;
+    -moz-transition-property: background-color;
+    -moz-transition-duration: 0.5s;
+    -moz-transition-timing-function: ease-in;
+    -o-transition-property: background-color;
+    -o-transition-duration: 0.5s;
+    -o-transition-timing-function: ease-in;
+    -ms-transform-property: background-color;
+    -ms-transform-duration: 0.5s;
+    -ms-transform-timing-function: ease-in;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+}
+
+#nav1:hover {
+    background-color:rgba(0, 0, 80, 0.5);
+    cursor:pointer;
+    color: rgba(255,255,255,0.9);
+}
+
+#nav1_sub {
+    
+    color: rgba(255,255,255,0.40);
+    -webkit-transition-property: color;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-in;
+    -moz-transition-property: color;
+    -moz-transition-duration: 0.5s;
+    -moz-transition-timing-function: ease-in;
+    -o-transition-property: color;
+    -o-transition-duration: 0.5s;
+    -o-transition-timing-function: ease-in;
+    -ms-transform-property: color;
+    -ms-transform-duration: 0.5s;
+    -ms-transform-timing-function: ease-in;
+    transition-property: color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+}
+#nav1_sub:hover {
+   
+    color: rgba(255,255,255,0.9);
+}
+/*THE STORY*/
+#nav2{
+background-color: rgba(0,0,0,1.00);
+    /*color: rgba(125,0,0,1.00);*/
+    width: 56px;
+    height: 120%;
+    display: block;
+    position: fixed;
+    left: -57px;
+    opacity: .8;
+    top:-10px;
+    background-color: transparent;
+    background-color: rgba(90, 0, 0, 0.8);
+    -webkit-transition-property: opacity;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-in;
+    -moz-transition-property: background-color;
+    -moz-transition-duration: 0.5s;
+    -moz-transition-timing-function: ease-in;
+    -o-transition-property: background-color;
+    -o-transition-duration: 0.5s;
+    -o-transition-timing-function: ease-in;
+    -ms-transform-property: background-color;
+    -ms-transform-duration: 0.5s;
+    -ms-transform-timing-function: ease-in;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+}
+
+#nav2:hover {
+    background-color:rgba(90, 0, 0, 0.5);
+    cursor:pointer;
+}
+
+#nav2_sub {
+    
+    color: rgba(255,255,255,0.40);
+    -webkit-transition-property: color;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-in;
+    -moz-transition-property: color;
+    -moz-transition-duration: 0.5s;
+    -moz-transition-timing-function: ease-in;
+    -o-transition-property: color;
+    -o-transition-duration: 0.5s;
+    -o-transition-timing-function: ease-in;
+    -ms-transform-property: color;
+    -ms-transform-duration: 0.5s;
+    -ms-transform-timing-function: ease-in;
+    transition-property: color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+}
+#nav2_sub:hover {
+   
+    color: rgba(255,255,255,0.9);
+}
+/**MENUS**/
+#nav3{
+background-color: rgba(0,0,0,1.00);
+    /*color: rgba(125,0,0,1.00);*/
+    width: 56px;
+    height: 120%;
+    display: block;
+    position: fixed;
+    left: -70px;;
+    opacity: .8;
+    top: -10px;
+    background-color: transparent;
+    background-color: rgba(61, 20, 102, 0.8);
+    -webkit-transition-property: opacity;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-in;
+    -moz-transition-property: background-color;
+    -moz-transition-duration: 0.5s;
+    -moz-transition-timing-function: ease-in;
+    -o-transition-property: background-color;
+    -o-transition-duration: 0.5s;
+    -o-transition-timing-function: ease-in;
+    -ms-transform-property: background-color;
+    -ms-transform-duration: 0.5s;
+    -ms-transform-timing-function: ease-in;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+}
+
+#nav3:hover {
+    background-color:rgba(61, 20, 102, 0.5);
+    cursor:pointer;
+}
+
+#nav3_sub {
+    
+    color: rgba(255,255,255,0.4);
+    -webkit-transition-property: color;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-in;
+    -moz-transition-property: color;
+    -moz-transition-duration: 0.5s;
+    -moz-transition-timing-function: ease-in;
+    -o-transition-property: color;
+    -o-transition-duration: 0.5s;
+    -o-transition-timing-function: ease-in;
+    -ms-transform-property: color;
+    -ms-transform-duration: 0.5s;
+    -ms-transform-timing-function: ease-in;
+    transition-property: color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+}
+#nav3_sub:hover {
+   
+    color: rgba(255,255,255,0.9);
+}
+/** END VERTICAL NAV**/
+/** SLIDESHOW **/
+.slideshow,
+.slideshow:after { 
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 0; 
+}
+.slideshow:after { 
+    content: '';
+    background: transparent url(images/pattern.png) repeat top left; 
+    opacity: 0.6;
+}
+.slideshow li span { 
+    width: 100%;
+    height: 110%;
+    position: absolute;
+    top: -10px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: none;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 18s linear infinite 0s; 
+}
+.slideshow li:nth-child(1) span { 
+    background-image: url(images/3.jpeg) 
+}
+.slideshow li:nth-child(2) span { 
+    background-image: url(images/2.jpg);
+    animation-delay: 6s; 
+}
+.slideshow li:nth-child(3) span { 
+    background-image: url(images/1.jpg);
+    animation-delay: 12s; 
+}
+
+@-webkit-keyframes imageAnimation { 
+    0% {
+        opacity: 0;
+        -webkit-animation-timing-function: ease-in;
+    }
+    17% {
+        opacity: 1;
+        -webkit-transform: scale(1.022);
+        -webkit-animation-timing-function: ease-out;
+    }
+    33% {
+        opacity: 1;
+        -webkit-transform: scale(1.055);
+    }
+    50% {
+        opacity: 0;
+        -webkit-transform: scale(1.055) translateY(-20%);
+    }
+    75% {
+        opacity: 0;
+        -webkit-transform: scale(1.055) translateY(-100%);
+    }
+    100% { opacity: 0 }
+}
+@-moz-keyframes imageAnimation { 
+    0% {
+        opacity: 0;
+        -moz-animation-timing-function: ease-in;
+    }
+    17% {
+        opacity: 1;
+        -moz-transform: scale(1.02);
+        -moz-animation-timing-function: ease-out;
+    }
+    33% {
+        opacity: 1;
+        -moz-transform: scale(1.05);
+    }
+    50% {
+        opacity: 0;
+        -webkit-transform: scale(1.05) translateY(-20%);
+    }
+    75% {
+        opacity: 0;
+        -moz-transform: scale(1.05) translateY(-100%);
+    }
+    100% { opacity: 0 }
+}
+@-o-keyframes imageAnimation { 
+   0% {
+        opacity: 0;
+        -o-animation-timing-function: ease-in;
+    }
+    17% {
+        opacity: 1;
+        -o-transform: scale(1.02);
+        -o-animation-timing-function: ease-out;
+    }
+    33% {
+        opacity: 1;
+        -o-transform: scale(1.05);
+    }
+    50% {
+        opacity: 0;
+        -webkit-transform: scale(1.05) translateY(-20%);
+    }
+    75% {
+        opacity: 0;
+        -o-transform: scale(1.05) translateY(-100%);
+    }
+    100% { opacity: 0 }
+}
+
+@keyframes imageAnimation { 
+   0% {
+        opacity: 0;
+        animation-timing-function: ease-in;
+    }
+    17% {
+        opacity: 1;
+        transform: scale(1.02);
+        animation-timing-function: ease-out;
+    }
+    33% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    49% {
+        opacity: 0;
+        -transform: scale(1.05) translateY(-20%);
+    }
+    75% {
+        opacity: 0;
+        -transform: scale(1.05) translateY(-100%);
+    }
+    100% { opacity: 0 }
+}
+.no-cssanimations .slideshow li span{
+    opacity: 1;
+}
+
+/**END SLIDESHOW **/
+body {
+    background-color: rgba(0,0,0,1.00);
+}
+#logo {
+    opacity: 0.8;
+    display: block;
+    width: 120;
+    height: 120;
+    float: right;
+    padding-top: 20px;
+    padding-right: 10px;
+    text-align: center;
+    font-size: 28px;
+   color: rgba(254, 196,99,1);
+   /*text-transform: uppercase;*/
+   text-decoration: none;
+    font-family: 'Papyrus';
+}
+#logo:hover{
+    color:rgba(255, 182,92,1);
+}
+#bigBlackBox{
+    
+    height: 120%;
+    /*display: block;
+     width: 0px;*/
+    position: fixed;
+    top:-10px;
+    left: 0px;
+    display: none;
+    background-color: black;
+    color: white;
+    width:600px;
+    text-align:center;
+    -webkit-overflow-scrolling: touch;
+    -moz-overflow-scrolling: touch;
+    -ms-overflow-scrolling: touch;
+    -o-overflow-scrolling: touch;
+    overflow-y:scroll;
+}
+iframe{
+    width: 560px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: none;
+    height: 80%;
+   overflow-y: scroll;
+    overflow-x: hidden;
+/**padding-right: 10px;**/
+}
+
