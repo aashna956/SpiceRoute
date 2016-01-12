@@ -1,4 +1,5 @@
 var express = require('express');
+var expressValidator = require('express-validator');
 var menu = require('./controllers/menu.js');
 var ss = require('./controllers/smartyst.js');
 var flash = require("express-flash");
@@ -17,20 +18,21 @@ app.set('port', (process.env.PORT || 5000));
 // make express look in the public directory for assets (css/js/img)
 
 app.use(express.static(__dirname + '/public'));
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({
   resave: true,
   saveUninitialized: true,
   store: new pgSession({
-	pg : pg,                                  // Use global pg-module 
+  pg : pg,                                  // Use global pg-module 
     conString : secrets.db,
     tableName : 'session'
   }),
   secret: secrets.sessionSecret,
 }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(expressValidator());
+
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -39,8 +41,9 @@ app.get('/', function(request, response) {
 	response.render('public/index');
 });
 app.get('/order/placeOrder/:orderid', function(req,res){
-  res.render('placeOrder');
+  res.render('placeOrder', {errors:[]});
 });
+app.post('/order/placeOrder/:orderid', menu.placeOrder);
 app.get('/:product', menu.getAddToOrder);
 app.post('/:product', menu.addToOrder);
 app.get('/view/:orderid', menu.viewOrder);

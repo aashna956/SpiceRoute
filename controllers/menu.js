@@ -134,6 +134,20 @@ exports.viewOrder = function(req,res){
       });
     });
   });
-
-  
 };
+exports.placeOrder = function(req,res){
+
+    req.assert('name', 'Name is required').notEmpty();           //Validate name
+    req.assert('email', 'A valid email is required').isEmail();  //Validate email
+    req.assert('phone', 'Please follow the specified format for phone numbers').isNumeric().isLength(10);
+    req.assert('addr', 'Address is required').notEmpty();
+
+    var errors = req.validationErrors();
+    if( !errors){   //No errors were found.  Passed Validation!
+       /* do things */
+    }
+    else {   //Display errors to user
+      /* add code to let it retain entered information */
+        res.render('placeOrder', {errors:errors});
+    }
+ };
