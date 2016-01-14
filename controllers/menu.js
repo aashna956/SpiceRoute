@@ -191,7 +191,7 @@ exports.placeOrder = function(req,res){
               cb();
             }, function(err){
               console.log("in callback:"+addresses);
-              res.render('verifyaddress', {addresses:addresses, orderid: req.params.orderid});
+              res.render('verifyAddress', {addresses:addresses, orderid: req.params.orderid});
             });
         });
     }
