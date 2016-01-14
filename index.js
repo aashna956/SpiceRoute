@@ -41,7 +41,7 @@ app.get('/', function(request, response) {
 	response.render('public/index');
 });
 app.get('/order/placeOrder/:orderid', function(req,res){
-  res.render('placeOrder', {errors:[]});
+  res.render('placeOrder', {errors:[], orderid: req.params.orderid});
 });
 app.get('/confirm/:orderid', menu.confirmOrder);
 app.post('/order/placeOrder/:orderid', menu.placeOrder);

@@ -30,11 +30,26 @@
                 box-shadow: 10px;
                 border: 0px;
                 font-family: 'Papyrus';
-                font-size: 14px;
+                font-size: 16px;
                 color: rgba(254, 196,99,1); 
-                cursor: pointer;              
+                cursor: pointer;   
+                text-decoration: none;           
             }
             a:hover{
+                color: rgba(254, 200,200,1)
+            }
+            button
+            {
+                background-color: black;
+                box-shadow: 10px;
+                border: 0px;
+                font-family: 'Papyrus';
+                font-size: 16px;
+                color: rgba(254, 196,99,1); 
+                cursor: pointer;  
+                padding-top: 15px;            
+            }
+            button:hover{
                 color: rgba(254, 200,200,1)
             }
             #err{
@@ -48,6 +63,8 @@
     </head>
 
     <body>
+            <p> <a style="align:left" href="/view/<%=orderid%>"> Go back </a></p>
+
             <div id="err">
                 <ul>
                 <% errors.forEach(function(error){%>

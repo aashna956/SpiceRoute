@@ -197,12 +197,13 @@ exports.placeOrder = function(req,res){
     }
     else {   //Display errors to user
       /* add code to let it retain entered information */
-        res.render('placeOrder', {errors:errors});
+        res.render('placeOrder', {errors:errors, orderid:req.params.orderid});
     }
  };
 
 exports.confirmOrder = function(req,res){
   var client = new pg.Client(conString);
+  var order = {orderid: req.params.orderid};
   client.connect();
   if(!req.query.addr_options){
     /* if they continue with their own address */
@@ -217,4 +218,28 @@ exports.confirmOrder = function(req,res){
     });
   }
   /* retrive order content */
+  client.query("select * from orders where orderid = $1", [req.params.orderid], function(err, result){
+    if(err){
+      res.sendStatus(400);
+      console.log("1:"+ err);
+      client.end();
+    }
+    order.name = result.rows[0].name;
+    order.address = result.rows[0].address;
+    order.phone = result.rows[0].phone;
+    order.email = result.rows[0].email;
+    order.total = result.rows[0].total;
+  });
+  client.query("select product,quantity from contains where oderid = $1", [req.params.orderid], function(err,result){
+    if(err){
+      res.sendStatus(400);
+      console.log("2:"+ err);
+      client.end();
+    }
+    order.content = result.rows;
+    res.render('reviewOrder', {order:order});
+    client.end();
+  });
+  
+
 };

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+        Remove this if you use the .htaccess -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <title>HTML</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+        <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+        <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <style type="text/css">
+            body 
+            {
+                background-color: black;
+                font-family: 'Papyrus';
+                font-size: 16px;
+                color: rgba(254, 196,99,1);
+            }
+            a
+            {
+                font-family: 'Papyrus';
+                font-size: 16px;
+                color: rgba(254, 196,99,1); 
+                cursor: pointer;    
+                text-decoration: none;          
+            }
+            a:hover{
+                color: rgba(254, 200,200,1);
+            }
+            table td, table td * {
+                vertical-align: top;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h3> Review Order </h3>
+        <table width="100%" >
+            <tr>
+                <!-- column 1 -->
+                <td style="align:top">
+                    <h4> Your Details </h4>
+                    <table>
+                        <tr>
+                           <p> <td> Name </td>
+                            <td> <%= order.name %> </td></p>
+                        </tr>
+                        <tr>
+                           <p> <td> Address </td>
+                            <td> <%= order.address %> </td></p>
+                        </tr>
+                        <tr>
+                           <p> <td> Email </td>
+                            <td> <%= order.email %> </td></p>
+                        </tr>
+                        <tr>
+                           <p> <td> Phone </td>
+                            <td> <%= order.phone %> </td></p>
+                        </tr>
+                    </table>
+                </td>
+                <!-- column 2 -->
+                <td style="align:top">
+                    <h4> Review Order #<%= order.orderid %></h4>
+                    <table> 
+                        <% (order.content).forEach(function(item){ %>
+                        <tr>
+                            <p> <td> <%= item.product %> </td>
+                            <td> <%= item.quantity %></td><p>
+                        </tr>
+                        <% }); %>
+                    </table>
+                    <h4> Your total : N.<%= order.total %> </h4>
+                </td>
+            </tr>
+        </table>
+        <p> <a style="float:left" href="/order/placeorder/<%= order.orderid %>"> Go back </a>
+        <a style="float:right" href="#"> Place Order</a> </p>
+    </body>
+</html>
