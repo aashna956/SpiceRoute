@@ -22,19 +22,18 @@
                 font-size: 16px;
                 color: rgba(254, 196,99,1);
             }
-            button
+            a
             {
-                background-color: black;
-                box-shadow: 10px;
-                border: 0px;
                 font-family: 'Papyrus';
-                font-size: 14px;
+                font-size: 16px;
                 color: rgba(254, 196,99,1); 
-                cursor: pointer;              
+                cursor: pointer;    
+                text-decoration: none;          
             }
-            button:hover{
-                color: rgba(254, 200,200,1)
+            a:hover{
+                color: rgba(254, 200,200,1);
             }
+
             input
             {
                 background-color: black;
@@ -48,17 +47,25 @@
     </head>
 
     <body>
-        <p> Here's what we found: </p>
+        <div>
+        <% if(addresses.length>0){  %>
+        <p style="clear:left"> Here's what we found: </p>
                 <form action="/confirm/<%= orderid %>" method="GET">
+                   
                    <select name="addr_options">
                         <% addresses.forEach(function(address){  %>
                         <option> <%= address %> </option>
                         <% }); %>
                    </select>
-
+                   
                    <button type="submit" id="order">Proceed with this address</button>
                 </form>
         <p> Or </p>
-        <p> <a href="/confirm/<%= orderid %>"> Continue with original address</a> </p>
+        <% } else {%>
+        <p style="clear:left"> We were unable to locate this address, continue with entered address anyway? </p>
+        <% } %>
+        <p> <a style="float:left" href="/order/placeorder/<%= orderid %>"> Go back </a>
+        <a style="float:right" href="/confirm/<%= orderid %>"> Continue with original address</a> </p>
+        </div>
     </body>
 </html>
