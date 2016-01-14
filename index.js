@@ -43,6 +43,7 @@ app.get('/', function(request, response) {
 app.get('/order/placeOrder/:orderid', function(req,res){
   res.render('placeOrder', {errors:[]});
 });
+app.get('/confirm/:orderid', menu.confirmOrder);
 app.post('/order/placeOrder/:orderid', menu.placeOrder);
 app.get('/:product', menu.getAddToOrder);
 app.post('/:product', menu.addToOrder);

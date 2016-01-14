@@ -1,11 +1,16 @@
 var _ = require('lodash');
 var async = require('async');
+var each = require('async-each-series');
 var Sequelize = require('sequelize');
 var pg = require('pg');
 var conString = process.env.DATABASE_URL || "postgres://aashna956:Charu@956@localhost:5432/spiceroute";
 var chinese = require('../data/chinese.js');
 var bar = require('../data/bar.js');
 var indian = require('../data/indian.js');
+
+var addressValidator = require('address-validator');
+var Address = addressValidator.Address;
+ addressValidator.setOptions({'countryMatch':'NG'});
 exports.populateDatabase = function(req,res){
   var client = new pg.Client(conString);
   client.connect();
@@ -128,26 +133,88 @@ exports.viewOrder = function(req,res){
         order_items.push(order_item);
         i++;
         if(i==((result.rows).length)) {
-          client.end();
-          res.render('viewOrder', {order:order_items, sum: sum, orderid: orderid});
+          client.query("update orders set(total) = ($1) where orderid = $2", [sum, orderid], function(err){
+            if(err){
+              res.sendStatus(400);
+              console.log(err);
+              client.end();
+            }
+            else {
+              res.render('viewOrder', {order:order_items, sum: sum, orderid: orderid});
+              client.end();
+            }
+          });
+
         }
       });
     });
   });
 };
 exports.placeOrder = function(req,res){
-
+  var client = new pg.Client(conString);
     req.assert('name', 'Name is required').notEmpty();           //Validate name
     req.assert('email', 'A valid email is required').isEmail();  //Validate email
     req.assert('phone', 'Please follow the specified format for phone numbers').isNumeric().isLength(10);
-    req.assert('addr', 'Address is required').notEmpty();
+    req.assert('addr1', 'Address is required').notEmpty();
 
     var errors = req.validationErrors();
-    if( !errors){   //No errors were found.  Passed Validation!
-       /* do things */
+    if( !errors){   //No errors were found.  Passed Validation! 
+        client.connect();
+       var address = new Address({
+          street: req.body.addr1,
+          city: req.body.city,
+          state: req.body.state || 'Lagos',
+          postalCode: req.body.postalCode
+      });
+       var addrString = address.street+" , "+address.city +" , "+address.state+" , "+address.postalCode;
+      
+       /* for now insert address as it is into database */
+       client.query("update orders set(name,address, phone, email) = ($1,$2,$3,$4) where orderid=$5",[req.body.name,
+        addrString, req.body.phone, req.body.email, req.params.orderid], function(err){
+          if(err){
+            client.end();
+            res.sendStatus(400);
+            console.log("loo:"+err);
+          }
+          client.end();
+       });
+       /* now verify address and render the placeOrder page through the verifyaddress function*/
+       //verifyAddress(address);
+        addressValidator.validate(address, addressValidator.match.streetAddress, function(err, exact, inexact){
+          var addresses=[];
+            console.log(exact);
+            console.log(inexact);
+            var i=0;
+            each(inexact, function(addr, cb){
+              addresses.push(addr.toString());
+              console.log("pushed:"+addresses[i]);
+              cb();
+            }, function(err){
+              console.log("in callback:"+addresses);
+              res.render('verifyaddress', {addresses:addresses, orderid: req.params.orderid});
+            });
+        });
     }
     else {   //Display errors to user
       /* add code to let it retain entered information */
         res.render('placeOrder', {errors:errors});
     }
  };
+
+exports.confirmOrder = function(req,res){
+  var client = new pg.Client(conString);
+  client.connect();
+  if(!req.query.addr_options){
+    /* if they continue with their own address */
+  }
+  else {
+    
+    client.query("update orders set(address) = $1 where orderid = $2", [req.query.addr_options, req.params.orderid], function(err){
+      if(err){
+        res.sendStatus(400);
+        client.end();
+      }
+    });
+  }
+  /* retrive order content */
+};
